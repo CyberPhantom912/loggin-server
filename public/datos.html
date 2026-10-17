@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datos guardados · Loggin</title>
+<style>
+  :root { --border:#dadde1; --text:#1c1e21; --text-2:#65676b; --field:#f5f6f7; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100dvh; background: #fff; color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    padding: 40px 24px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.sub { color: var(--text-2); margin: 0 0 24px; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  th, td { text-align: left; padding: 12px 14px; font-size: 14px; border-bottom: 1px solid var(--border); }
+  th { background: var(--field); font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .empty { color: var(--text-2); font-size: 14px; padding: 20px 0; }
+  a.back { display: inline-block; margin-top: 20px; color: #0b5fff; text-decoration: none; font-size: 14px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Usuarios registrados</h1>
+    <p class="sub">Esta vista es solo para que pruebes el servidor.</p>
+    <div id="content"></div>
+    <a class="back" href="/login.html">← Volver al inicio de sesión</a>
+  </div>
+  <script>
+    fetch("/api/auth/users").then((r) => r.json()).then((users) => {
+      const content = document.getElementById("content");
+      if (!users.length) {
+        content.innerHTML = '<p class="empty">Todavía no hay nadie registrado. Crea una cuenta primero.</p>';
+        return;
+      }
+      const rows = users.map((u) => `
+        <tr>
+          <td>${u.identifier || "—"}</td>
+          <td>${u.passwordHash || u.password || "No disponible"}</td>
+          <td>${u.createdAt ? new Date(u.createdAt).toLocaleString() : "—"}</td>
+          <td>${u.lastLogin ? new Date(u.lastLogin).toLocaleString() : "—"}</td>
+        </tr>`).join("");
+      content.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Usuario / correo</th>
+              <th>Contraseña</th>
+              <th>Registrado</th>
+              <th>Último acceso</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>`;
+    });
+  </script>
+</body>
+</html>

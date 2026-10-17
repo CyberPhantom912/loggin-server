@@ -1,0 +1,9 @@
+{
+  "name": "loggin-server",
+  "version": "1.0.0",
+  "description": "Servidor de prueba para el login de Loggin (sin dependencias externas)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

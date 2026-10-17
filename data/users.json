@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1bac78e4-3d34-4ede-80a4-5deabfce0378",
+    "identifier": "´sandy161623@gmail.com",
+    "passwordHash": "4b907e45a8a192f706903454dda36663:138ccc2a92bdb916fd04cd37e207a1cc835469eeb5ca3f2a689de99e7225bfe8057e511e1aa2fd3ef7373a167c4774d85409223f4ea320a87da92ae441d5b51b",
+    "createdAt": "2026-10-17T01:59:31.873Z",
+    "lastLogin": "2026-10-17T01:59:47.308Z"
+  },
+  {
+    "id": "7bb465a2-f860-42db-b8dc-016f493e29d5",
+    "identifier": "sandyperezsegura14@gmail.com",
+    "passwordHash": "03f91ef4ada473d65346a99be028810e:bc4cc26d7a2447dfa875b4251a2c1d7c82318aa581da813c59daa3b64032a56c5c1c3c9cf74caa49d5eb189b316765a8d781967bd15ad666bf67b8ad83f7bc0d",
+    "createdAt": "2026-10-17T02:23:44.682Z",
+    "lastLogin": null
+  },
+  {
+    "id": "1792251127759",
+    "identifier": "castillobertre16@gmail.com",
+    "passwordHash": "passwordtest",
+    "createdAt": "2026-10-17T15:32:07.760Z",
+    "lastLogin": null
+  }
+]
